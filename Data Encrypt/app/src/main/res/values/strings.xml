@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Data Encrypt</string>
+    <string name="Encrpt">EncrptionButton</string>
+    <string name="add">addButton</string>
+</resources>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E8E9"
+    tools:context=".profile.profile">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="800dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6E8E9"
+            tools:context=".profile.profile">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="41dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="-3dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_page_title"
+                app:layout_constraintEnd_toStartOf="@+id/profile_page_title"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_page_title"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:id="@+id/profile_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="12dp"
+                android:gravity="top"
+                android:text="Profile"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/user_profile_save"
+                android:layout_width="35dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/profile_page_title"
+                app:layout_constraintTop_toTopOf="@+id/back"
+                app:layout_constraintVertical_bias="0.333"
+                app:srcCompat="@drawable/right_logo" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/dp"
+                android:layout_width="89dp"
+                android:layout_height="87dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="16dp"
+                android:foregroundGravity="center_vertical"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/back"
+                app:layout_constraintVertical_bias="0.0"
+                app:shapeAppearanceOverlay="@style/Circular"
+                app:srcCompat="@drawable/default_contect_logo" />
+
+
+            <EditText
+                android:id="@+id/user_business_name"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/manage_stock_list"
+                android:backgroundTint="#FFFFFF"
+                android:drawablePadding="12dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:ems="10"
+                android:hint="Business Name"
+                android:inputType="text"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/dp"
+                app:layout_constraintTop_toTopOf="@+id/dp"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/manage_stock_list"
+                android:backgroundTint="#FFFFFF"
+                android:drawablePadding="12dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:ems="10"
+                android:hint="Your Full Name"
+                android:inputType="text"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dp"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/user_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/manage_stock_list"
+                android:backgroundTint="#FFFFFF"
+                android:drawablePadding="12dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:ems="10"
+                android:hint="Mobile Number"
+                android:inputType="phone"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_name"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/user_emailid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/manage_stock_list"
+                android:backgroundTint="#FFFFFF"
+                android:drawablePadding="12dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:ems="10"
+                android:hint="E-Mail Address"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_phone_number"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/user_gstin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/manage_stock_list"
+                android:backgroundTint="#FFFFFF"
+                android:drawablePadding="12dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:ems="10"
+                android:hint="GSTIN"
+                android:inputType="text"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_emailid"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="900dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

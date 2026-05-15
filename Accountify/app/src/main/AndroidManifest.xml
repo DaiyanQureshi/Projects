@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.accountify">
+        <activity
+            android:name=".fragment_home.dashboard.purchase"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_home.dashboard.payable"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_home.dashboard.receivable"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_home.dashboard.sales"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_home.dashboard.profit"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_bills.Bills_fragment_3"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_bills.Bills_fragment_2"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_product.ProductFragment_Layer_2"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_report.report_template"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_bills.bills_template"
+            android:exported="false" />
+        <activity
+            android:name=".new_purchase.add_item_to_purchase"
+            android:exported="false" />
+        <activity
+            android:name=".available_balance.available_balance"
+            android:exported="false" />
+        <activity
+            android:name=".profile.profile"
+            android:exported="false" />
+        <activity
+            android:name=".suppliers.add_supplier"
+            android:exported="false" />
+        <activity
+            android:name=".new_purchase.new_purchase"
+            android:exported="false" />
+        <activity
+            android:name=".customers.add_customer"
+            android:exported="false" />
+        <activity
+            android:name=".Bottom_Nav_Bar"
+            android:exported="false" />
+        <activity
+            android:name=".suppliers.suppliers"
+            android:exported="false" />
+        <activity
+            android:name=".customers.customers"
+            android:exported="false" />
+        <activity
+            android:name=".new_sale.trade_sale"
+            android:exported="false" />
+        <activity
+            android:name=".new_sale.add_item"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_home.HomeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_more.MoreFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_report.ReportFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_product.ProductFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_bills.BillsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".daily_report.daily_report"
+            android:exported="false" />
+        <activity
+            android:name=".sent_payment.sent_payment"
+            android:exported="false" />
+        <activity
+            android:name=".receive_payment.Receive_payment"
+            android:exported="false" />
+        <activity
+            android:name=".upi_payment.upi_payment"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

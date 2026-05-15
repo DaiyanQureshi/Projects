@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/manage_stock_list"
+    android:backgroundTint="#F5F5F7"> <!-- Changed to wrap_content to fit the item -->
+
+    <!-- This ImageView acts as the rounded rectangle background -->
+
+    <!-- Product Image (DP) -->
+
+    <!-- Added tools:srcCompat for preview -->
+
+    <!-- "Purchase Price" Label (Top Right) -->
+    <!-- This view is constrained to the end of the parent -->
+
+    <TextView
+        android:id="@+id/numbering"
+        android:layout_width="25dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="0.5dp"
+        android:text="#1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- "50 Bags" Value (Bottom Right) -->
+    <!-- This view is aligned to the start/end of its label above -->
+    <TextView
+        android:id="@+id/total_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="₹ 9,989.00"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/subtotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- "Dairy Milk" Title (Top Left) -->
+    <!-- Width is 0dp to fill space between image and price text -->
+
+    <!-- "Qty: 120 Barrs" (Bottom Left) -->
+    <!-- Aligned to the Title's start/end to fill the same space -->
+    <TextView
+        android:id="@+id/subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="88 x 88 = 9950"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/discount_in_rupee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/subtotal_text"
+        app:layout_constraintTop_toBottomOf="@+id/total_amount" />
+
+    <TextView
+        android:id="@+id/discount_in_rupee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="₹ 0"
+        android:textColor="#F7A42B"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/tax_in_rupee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/discount_in_percent"
+        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+
+    <TextView
+        android:id="@+id/tax_in_rupee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="₹ 0"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/received_amount"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tax_in_percent"
+        app:layout_constraintTop_toBottomOf="@+id/discount_in_rupee" />
+
+    <TextView
+        android:id="@+id/received_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="right"
+        android:text="₹ 0"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/received_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/received_checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/tax_in_rupee" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:shadowColor="#404040"
+        android:text="Dairy Milk"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/total_amount"
+        app:layout_constraintEnd_toStartOf="@+id/total_amount"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/numbering"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/subtotal_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Item Subtotal"
+        android:textColor="#817E7E"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/subtotal"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/numbering"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/discount_in_percent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Discount(%): 0"
+        android:textColor="#F7A42B"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/discount_in_rupee"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/numbering"
+        app:layout_constraintTop_toBottomOf="@+id/subtotal_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tax_in_percent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tax: 0%"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tax_in_rupee"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/numbering"
+        app:layout_constraintTop_toBottomOf="@+id/discount_in_percent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/received_checkbox"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="9.5dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="16dp"
+        android:text="Received"
+        android:textSize="13.5sp"
+        app:layout_constraintBottom_toBottomOf="@+id/received_amount"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintEnd_toStartOf="@+id/received_amount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tax_in_percent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#D5EDDC"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CustomCardShape"
+        app:strokeWidth="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

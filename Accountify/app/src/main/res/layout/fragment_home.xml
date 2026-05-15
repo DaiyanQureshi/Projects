@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F7"
+    android:paddingBottom="70dp"
+    tools:context=".fragment_home.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <FrameLayout
+                android:id="@+id/header_background"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:background="@drawable/header_background"
+                android:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="26.6dp"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/Circular"
+                    app:srcCompat="@drawable/dp" />
+
+                <TextView
+                    android:id="@+id/business_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="82.5dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="Pearls Products"
+                    android:textColor="#1D1D1F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/three_dots"
+                    android:layout_width="37dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_marginRight="2.7dp"
+                    android:layout_weight="1"
+                    android:onClick="threedots"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/business_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.96"
+                    app:layout_constraintStart_toEndOf="@+id/business_name"
+                    app:layout_constraintTop_toTopOf="@+id/business_name"
+                    app:srcCompat="@drawable/three_dots" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/current_balance_container"
+                android:layout_width="0dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/quick_action_background"
+                android:elevation=".1dp"
+                android:onClick="profit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header_background"
+                app:layout_constraintVertical_bias="0.0">
+
+
+                <!-- Text: Current Balance -->
+                <TextView
+                    android:id="@+id/Current_Balance_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="13dp"
+                    android:onClick="profit"
+                    android:text="Monthly Profit"
+                    android:textColor="#2A59FB"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Text: Balance Amount -->
+                <TextView
+                    android:id="@+id/Current_Balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="47dp"
+                    android:onClick="profit"
+                    android:text="₹ 1,45,200"
+                    android:textColor="#1D1D1F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/today_sales_frame"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/quick_action_background"
+                android:onClick="sales"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/money_to_pay_frame"
+                app:layout_constraintStart_toStartOf="@+id/current_balance_container"
+                app:layout_constraintTop_toBottomOf="@+id/current_balance_container"
+                app:layout_constraintVertical_bias="0.0">
+
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/today_sales_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:onClick="sales"
+                    android:text="Sales ( Monthly )"
+                    android:textColor="#2A59FB"
+                    android:textSize="16sp" />
+
+                <!-- Value -->
+                <TextView
+                    android:id="@+id/today_sales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="24dp"
+                    android:onClick="sales"
+                    android:text="₹ 25,500"
+                    android:textColor="#1D1D1F"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <!-- Icon -->
+                <ImageView
+                    android:id="@+id/today_sales_icon"
+                    android:layout_width="33dp"
+                    android:layout_height="31dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="sales"
+                    android:src="@drawable/this_month_profit_icon" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/money_to_pay_frame"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/quick_action_background"
+                android:elevation=".1dp"
+                android:onClick="payable"
+                app:layout_constraintBottom_toBottomOf="@+id/today_sales_frame"
+                app:layout_constraintEnd_toEndOf="@+id/current_balance_container"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/today_sales_frame"
+                app:layout_constraintTop_toTopOf="@+id/today_sales_frame">
+
+                <TextView
+                    android:id="@+id/money_to_pay_text"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:onClick="payable"
+                    android:text="Payables\n( Total )"
+                    android:textColor="#2A59FB"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/money_to_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="24dp"
+                    android:onClick="payable"
+                    android:text="₹ 32,800"
+                    android:textColor="#1D1D1F"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/money_to_pay_icon"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="7dp"
+                    android:onClick="payable"
+                    android:src="@drawable/money_to_pay_icon" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/money_to_receive_frame"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/quick_action_background"
+                android:onClick="receivable"
+                app:layout_constraintEnd_toStartOf="@+id/this_month_profit_frame"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/today_sales_frame"
+                app:layout_constraintTop_toBottomOf="@+id/today_sales_frame">
+
+                <TextView
+                    android:id="@+id/money_to_receive_text"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:onClick="receivable"
+                    android:text="Receivables\n( Total )"
+                    android:textColor="#2A59FB"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/money_to_receive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="25dp"
+                    android:onClick="receivable"
+                    android:text="₹ 85,000"
+                    android:textColor="#313133"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/money_to_receive_icon"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="7dp"
+                    android:onClick="receivable"
+                    android:src="@drawable/money_to_receive_icon" />
+
+            </FrameLayout>
+            " />
+
+            <FrameLayout
+                android:id="@+id/this_month_profit_frame"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/quick_action_background"
+                android:onClick="purchase"
+                app:layout_constraintBottom_toBottomOf="@+id/money_to_receive_frame"
+                app:layout_constraintEnd_toEndOf="@+id/money_to_pay_frame"
+                app:layout_constraintStart_toEndOf="@+id/money_to_receive_frame"
+                app:layout_constraintTop_toTopOf="@+id/money_to_receive_frame">
+
+                <TextView
+                    android:id="@+id/this_month_profit_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:onClick="purchase"
+                    android:text="Purchase ( Monthly )"
+                    android:textColor="#2A59FB"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/this_month_profit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="25dp"
+                    android:onClick="purchase"
+                    android:text="₹ 18,700"
+                    android:textColor="#1D1D1F"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/this_month_profit_icon"
+                    android:layout_width="37dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="11dp"
+                    android:onClick="purchase"
+                    android:src="@drawable/today_sales_icon" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/quicik_action_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19.66dp"
+                android:layout_marginTop="12dp"
+                android:text="Quick Access"
+                android:textColor="#1D1D1F"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/this_month_profit_frame"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="@+id/money_to_receive_frame"
+                app:layout_constraintTop_toBottomOf="@+id/money_to_receive_frame"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <LinearLayout
+                android:id="@+id/quick_action_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/quick_action_background"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/this_month_profit_frame"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/money_to_receive_frame"
+                app:layout_constraintTop_toBottomOf="@+id/quicik_action_text"
+                app:layout_constraintVertical_bias="0.0">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6.3dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/invoice_icon"
+                            android:layout_width="65dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="invoice"
+                            app:layout_constraintBottom_toTopOf="@+id/invoice_text"
+                            app:layout_constraintEnd_toStartOf="@+id/record_payment_icon"
+                            app:layout_constraintStart_toStartOf="@+id/quick_action_background"
+                            app:layout_constraintTop_toBottomOf="@+id/quicik_action_text"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/sales" />
+
+                        <TextView
+                            android:id="@+id/invoice_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:onClick="invoice"
+                            android:text="New Sale "
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/invoice_icon"
+                            app:layout_constraintStart_toStartOf="@+id/invoice_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-5.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/record_payment_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+
+                            android:onClick="record_payment"
+                            app:layout_constraintBottom_toTopOf="@+id/record_payment_text"
+                            app:layout_constraintEnd_toStartOf="@+id/add_expenses_icon"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/invoice_icon"
+                            app:layout_constraintTop_toTopOf="@+id/invoice_icon"
+                            app:srcCompat="@drawable/receive_money_icon" />
+
+                        <TextView
+                            android:id="@+id/record_payment_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:onClick="record_payment"
+                            android:text="Receive Payment"
+
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/record_payment_icon"
+                            app:layout_constraintStart_toStartOf="@+id/record_payment_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-9.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/add_expenses_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="add_expenses"
+                            app:layout_constraintBottom_toTopOf="@+id/add_expenses_text"
+                            app:layout_constraintEnd_toStartOf="@+id/manage_stock_icon"
+                            app:layout_constraintHorizontal_bias="0.04"
+                            app:layout_constraintStart_toEndOf="@+id/record_payment_icon"
+                            app:layout_constraintTop_toTopOf="@+id/record_payment_icon"
+                            app:srcCompat="@drawable/sent_money_icon" />
+
+                        <TextView
+                            android:id="@+id/add_expenses_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="add_expenses"
+                            android:text="Sent Payment"
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/add_expenses_icon"
+                            app:layout_constraintStart_toStartOf="@+id/add_expenses_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-14dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/manage_stock_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="new_purchase"
+                            app:layout_constraintEnd_toEndOf="@+id/quick_action_background"
+                            app:layout_constraintHorizontal_bias="0.69"
+                            app:layout_constraintStart_toEndOf="@+id/add_expenses_icon"
+                            app:layout_constraintTop_toTopOf="@+id/add_expenses_icon"
+                            app:srcCompat="@drawable/purchase" />
+
+                        <TextView
+                            android:id="@+id/manage_stock_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="new_purchase"
+                            android:text="New Purchase"
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/manage_stock_icon"
+                            app:layout_constraintStart_toStartOf="@+id/manage_stock_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="16.5dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="11dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/add_customer_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            app:layout_constraintBottom_toTopOf="@+id/add_customer_text"
+                            app:layout_constraintEnd_toStartOf="@+id/record_payment_icon"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/invoice_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon"
+                            app:srcCompat="@drawable/customers_icon" />
+
+                        <TextView
+                            android:id="@+id/add_customer_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            android:text="Customers"
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/add_customer_icon"
+                            app:layout_constraintStart_toStartOf="@+id/add_customer_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3.4dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/view_udhar_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            app:layout_constraintBottom_toTopOf="@+id/view_udhar_text"
+                            app:layout_constraintEnd_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/add_customer_icon"
+
+                            app:layout_constraintTop_toTopOf="@+id/add_customer_icon"
+                            app:srcCompat="@drawable/suppliers_icon" />
+
+                        <TextView
+                            android:id="@+id/view_udhar_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            android:text="Vendors"
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintStart_toStartOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-4.7dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/upi_payment_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            app:layout_constraintBottom_toTopOf="@+id/upi_payment_text"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintHorizontal_bias="0.04"
+                            app:layout_constraintStart_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toTopOf="@+id/view_udhar_icon"
+                            app:srcCompat="@drawable/invoice_icon" />
+
+                        <TextView
+                            android:id="@+id/upi_payment_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            android:text="Create Invoice "
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintStart_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-11.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/daily_report_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="37dp"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_report_text"
+                            app:layout_constraintEnd_toEndOf="@+id/quick_action_background"
+                            app:layout_constraintHorizontal_bias="0.69"
+                            app:layout_constraintStart_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toTopOf="@+id/upi_payment_icon"
+                            app:srcCompat="@drawable/report_icon" />
+
+                        <TextView
+                            android:id="@+id/daily_report_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            android:text="Create Report"
+                            android:textColor="#1D1D1F"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_report_icon"
+                            app:layout_constraintStart_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16.5dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="11dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/add_customer_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            app:layout_constraintBottom_toTopOf="@+id/add_customer_text"
+                            app:layout_constraintEnd_toStartOf="@+id/record_payment_icon"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/invoice_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon"
+                            app:srcCompat="@drawable/supplier_invoice_icon" />
+
+                        <TextView
+                            android:id="@+id/add_customer_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            android:text="Purchase Report"
+                            android:textColor="#E7812E"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/add_customer_icon"
+                            app:layout_constraintStart_toStartOf="@+id/add_customer_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3.4dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/view_udhar_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            app:layout_constraintBottom_toTopOf="@+id/view_udhar_text"
+                            app:layout_constraintEnd_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/add_customer_icon"
+
+                            app:layout_constraintTop_toTopOf="@+id/add_customer_icon" />
+                        <!--                            app:srcCompat="@drawable/bank_transfer_icon" />-->
+
+                        <TextView
+                            android:id="@+id/view_udhar_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            android:text="Sales Report"
+                            android:textColor="#1180D6"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintStart_toStartOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-4.7dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/upi_payment_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            app:layout_constraintBottom_toTopOf="@+id/upi_payment_text"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintHorizontal_bias="0.04"
+                            app:layout_constraintStart_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toTopOf="@+id/view_udhar_icon" />
+                        <!--                            app:srcCompat="@drawable/return_refund_icon" />-->
+
+                        <TextView
+                            android:id="@+id/upi_payment_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            android:text="New Purchase"
+                            android:textColor="#E85F55"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintStart_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-11.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/daily_report_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_report_text"
+                            app:layout_constraintEnd_toEndOf="@+id/quick_action_background"
+                            app:layout_constraintHorizontal_bias="0.69"
+                            app:layout_constraintStart_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toTopOf="@+id/upi_payment_icon" />
+                        <!--                            app:srcCompat="@drawable/customer_feedback_icon" />-->
+
+                        <TextView
+                            android:id="@+id/daily_report_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            android:text="Puchase Bill"
+                            android:textColor="#EF8832"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_report_icon"
+                            app:layout_constraintStart_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16.5dp"
+                    android:layout_marginBottom="42dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="11dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/add_customer_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            app:layout_constraintBottom_toTopOf="@+id/add_customer_text"
+                            app:layout_constraintEnd_toStartOf="@+id/record_payment_icon"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/invoice_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/invoice_icon"
+                            app:srcCompat="@drawable/supplier_invoice_icon" />
+
+                        <TextView
+                            android:id="@+id/add_customer_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="add_customer"
+                            android:text="Add Expense"
+                            android:textColor="#E7812E"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/add_customer_icon"
+                            app:layout_constraintStart_toStartOf="@+id/add_customer_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3.4dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/view_udhar_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            app:layout_constraintBottom_toTopOf="@+id/view_udhar_text"
+                            app:layout_constraintEnd_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/add_customer_icon"
+
+                            app:layout_constraintTop_toTopOf="@+id/add_customer_icon" />
+                        <!--                            app:srcCompat="@drawable/bank_transfer_icon" />-->
+
+                        <TextView
+                            android:id="@+id/view_udhar_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="view_udhar"
+                            android:text="Help"
+                            android:textColor="#1180D6"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintStart_toStartOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-4.7dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/upi_payment_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            app:layout_constraintBottom_toTopOf="@+id/upi_payment_text"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintHorizontal_bias="0.04"
+                            app:layout_constraintStart_toEndOf="@+id/view_udhar_icon"
+                            app:layout_constraintTop_toTopOf="@+id/view_udhar_icon" />
+                        <!--                            app:srcCompat="@drawable/return_refund_icon" />-->
+
+                        <TextView
+                            android:id="@+id/upi_payment_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="upi_payment"
+                            android:text="Return / Refund"
+                            android:textColor="#E85F55"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintStart_toStartOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-11.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/daily_report_icon"
+                            android:layout_width="78dp"
+                            android:layout_height="57dp"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_report_text"
+                            app:layout_constraintEnd_toEndOf="@+id/quick_action_background"
+                            app:layout_constraintHorizontal_bias="0.69"
+                            app:layout_constraintStart_toEndOf="@+id/upi_payment_icon"
+                            app:layout_constraintTop_toTopOf="@+id/upi_payment_icon" />
+                        <!--                            app:srcCompat="@drawable/customer_feedback_icon" />-->
+
+                        <TextView
+                            android:id="@+id/daily_report_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="daily_report"
+                            android:text="Feedback Note"
+                            android:textColor="#EF8832"
+                            android:textSize="11.2sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_report_icon"
+                            app:layout_constraintStart_toStartOf="@+id/daily_report_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/add_customer_icon" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/recent_activity_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19.66dp"
+                android:layout_marginTop="12dp"
+                android:text="Recent Activity"
+                android:textColor="#1D1D1F"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/this_month_profit_frame"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="@+id/quick_action_layout"
+                app:layout_constraintTop_toBottomOf="@+id/quick_action_layout"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recent_activity_recycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/BottomTemplate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recent_activity_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/BottomTemplate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="90dp"
+                android:text='Accountify v1.0.0'
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quick_action_layout"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <!--                \n \nSimplifying business management for growing enterprises. \nOur mission is to provide you with a powerful Business tool, \nCopyright © 2025 Daiyan Qureshi. All rights reserved.\nFor inquiries, please contact us at daiyanq07@gmail.com. Read our Privacy Policy and Terms of Service.'-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513560289941",
+    "project_id": "dataencrypt1",
+    "storage_bucket": "dataencrypt1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513560289941:android:5cbe2d7d375328d8de319c",
+        "android_client_info": {
+          "package_name": "com.daiyan.dataencrypt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAothD_XMyY26jvyxBtxAjUE6pWt4wrr3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

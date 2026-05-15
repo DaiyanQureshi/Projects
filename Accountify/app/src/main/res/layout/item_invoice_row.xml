@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="1dp"
+    android:paddingBottom="1dp"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    android:weightSum="10">
+
+    <TextView
+        android:id="@+id/txtSl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="9sp"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.4"
+        android:gravity="start"
+        android:text="Item Name"
+        android:textSize="9sp"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.7"
+        android:text="12-10-25"
+        android:textSize="9sp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtQty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.7"
+        android:text="1"
+        android:textSize="9sp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="0.00"
+        android:textSize="9sp"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.88"
+        android:text="0.00"
+        android:textSize="9sp"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:textColor="#000"/>
+
+</TableRow>
