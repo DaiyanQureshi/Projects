@@ -236,7 +236,12 @@ public class ProductFragment extends Fragment {
                     })
                     .build();
 
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
             recyclerView.setAdapter(adapter);
 
             tracker = new SelectionTracker.Builder<>(
@@ -256,13 +261,46 @@ public class ProductFragment extends Fragment {
                     super.onSelectionChanged();
                     if (tracker.hasSelection()) {
 //                        fab.setImageResource(android.R.drawable.ic_menu_delete);
-//                        fab.setOnClickListener(v -> processSelectedBills());
+                        fab.setText("Delete The Person");
+                        fab.setVisibility(View.VISIBLE);
+                        fab.setOnClickListener(v -> deletePartieRaw());
                     } else {
+                        fab.setVisibility(View.GONE);
 //                        fab.setImageResource(R.drawable.add_gray);
 //                        fab.setOnClickListener(v -> createTemplate());
                     }
                 }
             });
+
+    }
+    public void deletePartieRaw(){
+        for (Long selectionKey : tracker.getSelection()) {
+            int position = selectionKey.intValue();
+            Cursor cursorNew  = db_connect_obj.get_data(db_connect_obj.getTable_name_parties());
+
+            if (cursorNew != null && cursorNew.moveToPosition(position)) {
+                try {
+                    String in_stock_total_amount = cursorNew.getString(cursorNew.getColumnIndexOrThrow("in_stock_total_amount"));
+                    if(Integer.parseInt(in_stock_total_amount.trim())<=0) {
+                        String uniqueId = cursorNew.getString(cursorNew.getColumnIndexOrThrow("id"));
+                        db_connect_obj.delete_row(db_connect_obj.getTable_name_trade(), "id", uniqueId);
+                        Toast.makeText(getContext(), " Item Deleted Sucessfully", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else{
+                        Toast.makeText(getContext(), " Delete Inside Entries First", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), " Delete Inside Entries First", Toast.LENGTH_SHORT).show();
+
+                    android.util.Log.e("DELETE_ERROR", "Deletion failed: " + e.getMessage());
+                }
+            }
+        }
+        product();
 
     }
 
@@ -332,8 +370,10 @@ public class ProductFragment extends Fragment {
                 })
                 .setOnItemClick((cursorClick, position) -> {
                     if (tracker != null && tracker.hasSelection()) {
+
                         return;
                     }
+
 
                     Intent intent = new Intent(getContext(), ProductFragment_Layer_2.class);
                     intent.putExtra("slide", slide_flag);
@@ -352,7 +392,10 @@ public class ProductFragment extends Fragment {
                 })
                 .build();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         tracker = new SelectionTracker.Builder<>(
@@ -377,8 +420,9 @@ public class ProductFragment extends Fragment {
                     // Agar ek bhi item select hua, toh Add button ko Action button bana do
                     // (Note: Abhi tere paas delete_icon na ho toh app drawable use kar, ya baad me icon change kar lena)
 
-                    fab.setText("Add New Stock");
-                    fab.setOnClickListener(v -> processSelectedItems()); // Click par naya action chalega
+                    fab.setText("Delete Stock");
+                    fab.setOnClickListener(v -> deleteTradwRaw()); // Click par naya action chalega
+
                 } else {
                     // Selection khatam (sab deselect ho gaya), toh wapas original state me aa jao
                     fab.setText("Add New Stock");
@@ -389,6 +433,36 @@ public class ProductFragment extends Fragment {
         });
     }
 
+    public void deleteTradwRaw(){
+        for (Long selectionKey : tracker.getSelection()) {
+            int position = selectionKey.intValue();
+            Cursor cursorNew  = db_connect_obj.get_data(db_connect_obj.getTable_name_trade());
+
+            if (cursorNew != null && cursorNew.moveToPosition(position)) {
+                try {
+                    String in_stock_total_amount = cursorNew.getString(cursorNew.getColumnIndexOrThrow("in_stock_total_amount"));
+                    if(Integer.parseInt(in_stock_total_amount.trim())<=0) {
+                        String uniqueId = cursorNew.getString(cursorNew.getColumnIndexOrThrow("id"));
+                        db_connect_obj.delete_row(db_connect_obj.getTable_name_trade(), "id", uniqueId);
+                        Toast.makeText(getContext(), " Item Deleted Sucessfully", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else{
+                        Toast.makeText(getContext(), " Delete Inside Entries First", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), " Delete Inside Entries First", Toast.LENGTH_SHORT).show();
+
+                    android.util.Log.e("DELETE_ERROR", "Deletion failed: " + e.getMessage());
+                }
+            }
+        }
+        product();
+
+    }
     public void addStock() {
         Intent intent = new Intent(getContext(), new_purchase.class);
         startActivity(intent);

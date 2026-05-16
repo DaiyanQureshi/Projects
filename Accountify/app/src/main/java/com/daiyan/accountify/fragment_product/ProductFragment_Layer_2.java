@@ -157,7 +157,7 @@ public class ProductFragment_Layer_2 extends AppCompatActivity {
 
 
 
-    public void puchaseList(){
+    public void puchaseList() {
         trade_type = "purchase";
         purchase.setTextColor(Color.parseColor("#304FFE"));
         purchase_view.setVisibility(View.VISIBLE);
@@ -166,25 +166,22 @@ public class ProductFragment_Layer_2 extends AppCompatActivity {
 
         String name = title.getText().toString();
         Cursor cursor;
-        if(slide.equals("product")) {
-            cursor = db_connect_obj.searchInMultiColumnsMultiCondition(
-                    db_connect_obj.getTable_name_product(),
-                    new String[][]{
-                            {"trade_type", "==", "purchase", "AND", "("}, {"item_name", "==", name, "OR", ")"}
-                    }
-            );
+
+        // THE FIX: Using rawQuery to explicitly order by trade_date
+        android.database.sqlite.SQLiteDatabase db = db_connect_obj.getReadableDatabase();
+
+        if (slide.equals("product")) {
+            cursor = db.rawQuery("SELECT * FROM " + db_connect_obj.getTable_name_product() +
+                    " WHERE trade_type = 'purchase' AND item_name = ? ORDER BY trade_date ASC", new String[]{name});
+        } else {
+            cursor = db.rawQuery("SELECT * FROM " + db_connect_obj.getTable_name_product() +
+                    " WHERE trade_type = 'purchase' AND person_name = ? ORDER BY trade_date ASC", new String[]{name});
         }
-        else{
-            cursor = db_connect_obj.searchInMultiColumnsMultiCondition(
-                    db_connect_obj.getTable_name_product(),
-                    new String[][]{
-                            {"trade_type", "==", "purchase", "AND", "("}, {"person_name", "==", name, "OR", ")"}
-                    }
-            );
-        }
-        setList(cursor,name);
+
+        setList(cursor, name);
     }
-    public void saleList(){
+
+    public void saleList() {
         trade_type = "sale";
         sale.setTextColor(Color.parseColor("#304FFE"));
         sale_view.setVisibility(View.VISIBLE);
@@ -193,23 +190,19 @@ public class ProductFragment_Layer_2 extends AppCompatActivity {
 
         String name = title.getText().toString();
         Cursor cursor;
-        if(slide.equals("product")) {
-            cursor = db_connect_obj.searchInMultiColumnsMultiCondition(
-                    db_connect_obj.getTable_name_product(),
-                    new String[][]{
-                            {"trade_type", "==", "sale", "AND", "("}, {"item_name", "==", name, "OR", ")"}
-                    }
-            );
+
+        // THE FIX: Using rawQuery to explicitly order by trade_date
+        android.database.sqlite.SQLiteDatabase db = db_connect_obj.getReadableDatabase();
+
+        if (slide.equals("product")) {
+            cursor = db.rawQuery("SELECT * FROM " + db_connect_obj.getTable_name_product() +
+                    " WHERE trade_type = 'sale' AND item_name = ? ORDER BY trade_date ASC", new String[]{name});
+        } else {
+            cursor = db.rawQuery("SELECT * FROM " + db_connect_obj.getTable_name_product() +
+                    " WHERE trade_type = 'sale' AND person_name = ? ORDER BY trade_date ASC", new String[]{name});
         }
-        else{
-            cursor = db_connect_obj.searchInMultiColumnsMultiCondition(
-                    db_connect_obj.getTable_name_product(),
-                    new String[][]{
-                            {"trade_type", "==", "sale", "AND", "("}, {"person_name", "==", name, "OR", ")"}
-                    }
-            );
-        }
-        setList(cursor,name);
+
+        setList(cursor, name);
     }
 
     public void setList(Cursor data, String name){
@@ -336,6 +329,10 @@ public class ProductFragment_Layer_2 extends AppCompatActivity {
 
         // 3. Set Adapter
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
+
         layoutManager.setStackFromEnd(true);
         layoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(layoutManager);

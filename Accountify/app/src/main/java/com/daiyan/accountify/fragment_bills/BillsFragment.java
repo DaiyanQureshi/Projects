@@ -189,15 +189,31 @@ public class BillsFragment extends Fragment {
             @Override
             public void onSelectionChanged() {
                 super.onSelectionChanged();
+                //
                 if (tracker.hasSelection()) {
                     fab.setText("Delete Invoice");
-                    fab.setOnClickListener(v -> processSelectedBills());
+                    fab.setOnClickListener(v -> deleteTradeTable());
                 } else {
                     fab.setText("Create New Invoice");
                     fab.setOnClickListener(v -> createTemplate());
                 }
             }
         });
+    }
+
+    public void deleteTradeTable() {
+        for (Long selectionKey : tracker.getSelection()) {
+            int position = selectionKey.intValue();
+            Cursor cursorNew  = db_connect_obj.get_data(db_connect_obj.getTable_name_trade());
+            if (cursorNew != null && cursorNew.moveToPosition(position)) {
+                try {
+                    String uniqueId = cursorNew.getString(cursorNew.getColumnIndexOrThrow("id"));
+                   db_connect_obj.delete_row(db_connect_obj.getTable_name_trade(), "id", uniqueId);
+                } catch (Exception e) {
+                }
+            }
+
+        }
     }
 
     public void createTemplate() {
